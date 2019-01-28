@@ -10,5 +10,10 @@
     "psr-4": {
       "DawBed\\PHPOperationLimit\\": "lib"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DawBed\\PHPOperationLimit\\Tests": "tests"
+    }
   }
 }

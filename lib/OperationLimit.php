@@ -118,12 +118,17 @@ class OperationLimit implements OperationLimitInterface
         return $this;
     }
 
-    public function getTimeToUnlock() :\DateInterval
+    public function getTimeToUnlock(): \DateInterval
     {
         $blockForTime = new \DateInterval($this->forTime);
         $lastExecuted = clone $this->lastExecuted;
         $blockedTime = $lastExecuted->add($blockForTime);
 
         return $blockedTime->diff(new \DateTime());
+    }
+
+    public function getDateTimeToUnlock(): \DateTime
+    {
+        return (new \DateTime())->add($this->getTimeToUnlock());
     }
 }

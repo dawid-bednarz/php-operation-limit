@@ -46,4 +46,6 @@ interface OperationLimitInterface
     public function setContext(ContextInterface $context): OperationLimitInterface;
 
     public function getTimeToUnlock(): \DateInterval;
+
+    public function getDateTimeToUnlock(): \DateTime;
 }

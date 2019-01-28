@@ -9,7 +9,6 @@ namespace DawBed\PHPOperationLimit\Model;
 
 use DawBed\PHPOperationLimit\Exception\ExceedsLimitException;
 use DawBed\PHPOperationLimit\OperationLimit;
-use Gedmo\Exception;
 
 class UpdateModel extends AbstractModel
 {
@@ -34,7 +33,7 @@ class UpdateModel extends AbstractModel
             return;
         }
 
-        if ($currentExecuted > $this->entity->getExecuted()) {
+        if ($currentExecuted > $this->entity->getAllowed()) {
             if ($limitOperationTime > $now) {
                 throw new ExceedsLimitException($this->entity);
             }
